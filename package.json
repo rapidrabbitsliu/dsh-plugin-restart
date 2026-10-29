@@ -1,0 +1,17 @@
+{
+  "name": "dsh-plugin-web-restart",
+  "version": "0.1.0",
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
+  "repository": { "type": "git", "url": "git+https://github.com/rapidrabbitsliu/dsh-plugin-restart.git" },
+  "homepage": "https://github.com/rapidrabbitsliu/dsh-plugin-restart#readme",
+  "bugs": { "url": "https://github.com/rapidrabbitsliu/dsh-plugin-restart/issues" },
+  "keywords": ["dsh", "deepseek-harness", "plugin", "web", "restart", "supervisor"],
+  "license": "MIT",
+  "type": "module",
+  "description": "Confirmed sidebar restart for explicitly supervised DSH Web hosts.",
+  "exports": { ".": "./index.js", "./client": "./client.js", "./supervisor": "./supervisor.js", "./package.json": "./package.json", "./locale/*.json": "./locale/*.json", "./icon": "./icon.svg" },
+  "files": ["index.js", "core.js", "client.js", "supervisor.js", "cordis.patch.yml", "locale/*.json", "icon.svg", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test test/*.test.js", "check": "node --check index.js && node --check core.js && node --check client.js && node --check supervisor.js" },
+  "engines": { "node": ">=22.19" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" }, "client": { "platform": "web", "immediately": true, "inject": ["@deepseek-ai/dsh-client-ui-sidebar"] } }
+}
